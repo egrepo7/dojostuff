@@ -1,0 +1,23 @@
+<div ng-controller='resultsController as RC'>
+  <p class='link' ng-click='RC.logout()'>
+    Logout
+  </p>
+  <h1>{{ RC.user.name }} has ended the bid!</h1>
+  <h3>Highest bidders per product are...</h3>
+
+  <h4>Pencil</h4>
+  <p>
+    {{ RC.pencil._user.name }} : ${{ RC.pencil.bid }}
+  </p>
+
+  <h4>Computer</h4>
+  <p>
+    {{ RC.comp._user.name }} : ${{ RC.comp.bid }}
+  </p>
+
+  <h4>Seahawks Tickets</h4>
+  <p>
+    {{ RC.tix._user.name }} : ${{ RC.tix.bid }}
+  </p>
+  <button ng-click='RC.startover()'>Start Bid</button>
+</div>

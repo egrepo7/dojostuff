@@ -1,0 +1,69 @@
+<div ng-controller='bidsController as BC'>
+  <h1>Bid Now!</h1>
+  <p class='link' ng-click='BC.logout()'>
+    Logout
+  </p>
+
+  <div>
+    <h3>Pencil</h3>
+    <form name='pencil_errors'>
+      <input type="text" name='bid' ng-model='BC.newBidPencil.bid' required>
+        <div ng-messages='pencil_errors.name.$error'>
+          <p ng-message='required'>Bid amount is required</p>
+        </div>
+      <button ng-click='BC.pencilBid()'>Bid</button>
+    </form>
+
+    <p>Current Bids:</p>
+    <div ng-repeat="pencil in BC.pencils | filter: pencil_filter">
+      <p>{{ pencil._user.name }}: ${{ pencil.bid }}</p>
+    </div>
+    <p>
+        <input type="text" placeholder='Search' >
+    </p>
+  </div>
+  <hr>
+
+
+  <div>
+
+    <h3>Computer</h3>
+    <form name='comp_errors'>
+      <input type="text" name='bid' ng-model='BC.newBidComp.bid' required>
+        <div ng-messages='comp_errors.name.$error'>
+          <p ng-message='required'>Bid amount is required</p>
+        </div>
+      <button ng-click='BC.computerBid()'>Bid</button>
+    </form>
+
+    <p>Current Bids:</p>
+    <div ng-repeat="comp in BC.computers | filter: comp_filter" >
+      <p>{{ comp._user.name }}: ${{ comp.bid }}</p>
+    </div>
+    <p>
+      <input type="text" placeholder='Search' ng-model='comp_filter'>
+    </p>
+  </div>
+  <hr>
+  <div>
+
+    <h3>Seahawks Tickets</h3>
+    <form name='tix_errors'>
+      <input type="text" name='bid' ng-model='BC.newBidTix.bid' required>
+      <div ng-messages='tix_errors.name.$error'>
+        <p ng-message='required'>Bid amount is required</p>
+      </div>
+      <button ng-click='BC.tixBid()'>Bid</button>
+    </form>
+
+    <p>Current Bids:</p>
+    <div ng-repeat="tix in BC.tickets | filter: tix_filter">
+      <p>{{ tix._user.name }}: ${{ tix.bid }}</p>
+    </div>
+    <p>
+      <input type="text" placeholder='Search' ng-model='tix_filter'>
+    </p>
+  </div>
+  <button ng-click='BC.endBids()'>End Bids</button>
+
+</div>
