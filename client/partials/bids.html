@@ -12,6 +12,8 @@
           <p ng-message='required'>Bid amount is required</p>
         </div>
       <button ng-click='BC.pencilBid()'>Bid</button>
+      <p ng-if='BC.bidnotgreater'>Bid must be greater than {{ BC.highestPencil }}</p>
+
     </form>
 
     <p>Current Bids:</p>
@@ -19,7 +21,7 @@
       <p>{{ pencil._user.name }}: ${{ pencil.bid }}</p>
     </div>
     <p>
-        <input type="text" placeholder='Search' >
+        <input type="text" placeholder='Search' ng-model='pencil_filter' >
     </p>
   </div>
   <hr>
@@ -33,6 +35,8 @@
         <div ng-messages='comp_errors.name.$error'>
           <p ng-message='required'>Bid amount is required</p>
         </div>
+
+
       <button ng-click='BC.computerBid()'>Bid</button>
     </form>
 
@@ -64,6 +68,6 @@
       <input type="text" placeholder='Search' ng-model='tix_filter'>
     </p>
   </div>
-  <button ng-click='BC.endBids()'>End Bids</button>
 
+  <button ng-click='BC.endBids()'>End Bids</button>
 </div>
